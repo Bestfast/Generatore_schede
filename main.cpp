@@ -7,6 +7,8 @@ int main()
 	int vel;
 	int Errore;
 	int fine;
+	int exp_agg;
+	int exp;
 	string Shiny;
 	string Pokemon;
 	string scheda;
@@ -20,6 +22,7 @@ int main()
 	string lista_mosse_if;
 	string nome_pokemon;
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il nome il numero Pokédex del Pokémon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\nNome Pokémon: ");
+
 	cin >> Pokemon;
 	if(Pokemon == "1" or Pokemon == "Bulbasaur" or Pokemon == "bulbasaur")
 		{
@@ -36,8 +39,9 @@ int main()
 			if(Shiny == "No" or Shiny == "no")
 			{
 				printf("Ok, hai selezionato bulbasaur NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/bulbasaur.gif]\n<b>Bulbasaur<b> :erba: :veleno:\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif]\n<b>Bulbasaur<b> :erba: :veleno:\n";
 			}
+			exp_agg = 2;
 			mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";		}
 		if(Pokemon == "4" or Pokemon == "Charmander" or Pokemon == "charmander")
 		{
@@ -63,24 +67,17 @@ int main()
 		int pot_da_aggiungere;
 		if(level >= 51)
 		{
-			pv = (49 * 3) + ((level - 50) * 5);
-		}
-		if(level <= 50)
-		{
-			pv = (level - 1) * 3;
-		}
-		if(level <= 50)
-		{
-			pot_da_aggiungere = level - 1; 
-		}
-		if(level >= 51)
-		{
+			pv = (49 * 3) + ((level - 50) * 5) + pv;
 			pot_da_aggiungere = 49 + (level - 50) * 2;
+		}
+		if(level <= 50)
+		{
+			pv = (level - 1) * 3 + pv;
+			pot_da_aggiungere = level - 1; 
 		}
 		int pot_azione = 4 + pot_da_aggiungere;
 		printf("Vuoi vedere la lista delle mosse che può imparare questo Pokémon?\n");
 		cin >> lista_mosse_if;
-
 		if(lista_mosse_if == "Sì" or lista_mosse_if == "sì" or lista_mosse_if == "Si" or lista_mosse_if == "si")
 			{
 				cout << nome_pokemon << " può imparare queste mosse:\n" << mosse_apprese << "\n";
@@ -113,7 +110,8 @@ int main()
 			
 			mossa4 = azione;
 		}
-		scheda = Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa1 + mossa2 + mossa3 + mossa4;
+		exp = exp_agg * level;
+		scheda = Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa1 + mossa2 + mossa3 + mossa4 + "<b>EXP</b>: 0/" + to_string(exp);
 		Pokemon = Pokemon, "<b>Lv</b> ", level ,"<b>Pv</b> ", pv ,"<b>Vel</b> ", vel;
 		printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt'!\n");
 		FILE * pFile;
@@ -123,7 +121,7 @@ int main()
 				fputs (scheda.c_str(),pFile);
 				fclose (pFile);
 			}
-	}
+}
 	// else
 	// {
 	// 	cout<< "\nQuesto ID non esiste! Sicuro di non aver sbagliato?\nDigita '1' per riavviare il programma, oppure digita '0' per chiudere il programma.\n";
@@ -133,6 +131,7 @@ int main()
 	// 		return 0;
 	// 	}
 	// 	if(Errore == 1)
+	// 	
 	// 	{
 	// 		return main();
 	// 	}
