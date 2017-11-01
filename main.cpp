@@ -21,6 +21,7 @@ int main()
 	string azione;
 	string lista_mosse_if;
 	string nome_pokemon;
+	string ant_move;	
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il nome il numero Pokédex del Pokémon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\nNome Pokémon: ");
 
 	cin >> Pokemon;
@@ -89,26 +90,38 @@ int main()
 		{
 			mossa1 = azione;
 		}
-		printf("Bene! Adesso scegli un altra mossa.\n");
-		cin >> mossa2;
-		if(mossa2 == "azione" or mossa2 == "Azione")
+		printf("Vuoi scegliere un'altra mossa?\n");
+		cin >> ant_move;
+		if(ant_move == "Si" or ant_move == "Sì" or ant_move == "si" or ant_move == "sì")
 		{
-			
+			printf("Bene! Adesso scegli un altra mossa.\n");
+			cin >> mossa2;
+			if(mossa2 == "azione" or mossa2 == "Azione")
+			{
 			mossa2 = azione;
-		}
-		printf("Ok, hai scelto due mosse. adesso scegline una terza!\n");
-		cin >> mossa3;
-		if(mossa3 == "azione" or mossa3 == "Azione")
-		{
-			
-			mossa3 = azione;
-		}
-		printf("Perfetto! Scegli l'ultima mossa!\n");
-		cin >> mossa4;
-		if(mossa4 == "azione" or mossa4 == "Azione")
-		{
-			
-			mossa4 = azione;
+			}
+			printf("Vuoi scegliere un'altra mossa?\n");
+			cin >> ant_move;
+			if(ant_move == "Si" or ant_move == "Sì" or ant_move == "si" or ant_move == "sì")
+			{
+				printf("Ok, hai scelto due mosse. adesso scegline una terza!\n");
+				cin >> mossa3;
+				if(mossa3 == "azione" or mossa3 == "Azione")
+				{
+				mossa3 = azione;
+				}
+				printf("Vuoi scegliere un'altra mossa?");
+				cin >> ant_move;
+				if(ant_move == "Si" or ant_move == "Sì" or ant_move == "si" or ant_move == "sì")
+				{
+					printf("Perfetto! Scegli l'ultima mossa!\n");
+					cin >> mossa4;
+					if(mossa4 == "azione" or mossa4 == "Azione")
+					{
+						mossa4 = azione;
+					}
+				}
+			}
 		}
 		exp = exp_agg * level;
 		scheda = Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa1 + mossa2 + mossa3 + mossa4 + "<b>EXP</b>: 0/" + to_string(exp);
