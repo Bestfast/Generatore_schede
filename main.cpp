@@ -123,7 +123,7 @@ int main()
 		fputs(scheda.c_str(), pFile);
 		fclose(pFile);
 	}
-	getchar();
+	cin.get();
 }
 
 // else
