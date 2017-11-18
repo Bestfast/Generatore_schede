@@ -73,6 +73,28 @@ int main()
 		exp_agg=2;
 		mosse_apprese= "Te lo fai tu 2";
 		break;
+		
+	/*	case N:
+			printf("Hai scelto NOME!\nIl Pokemon e' shiny?\nRispondi con 'Si' o 'No'\n");
+			pv = PUNTI VITA;
+			vel = VELOCITA';
+			nome_pokemon = "NOME";
+			cin >> Shiny;
+			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
+			{
+				printf("Ok, hai selezionato NOME shiny!\n");
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/NOME.gif]\n<b>NOME</b> :TIPO:\n";
+			}
+			else
+			if (Shiny == "No" or Shiny == "no")
+			{
+				printf("Ok, hai selezionato NOME NON shiny!\n");
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/NOME.gif]\n<b>Squirtle</b> :TIPO:\n";
+			}
+		exp_agg=2?;
+		mosse_apprese= "MOSSE APPRESE";
+		break;
+		*/
 			
 		default:
 			printf("Non ancora implementato\n");
