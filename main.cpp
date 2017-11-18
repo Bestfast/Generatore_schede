@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string.h>
 using namespace std;
 int main()
 {
@@ -89,8 +88,7 @@ int main()
 			
 		default:
 			printf("Non ancora implementato\n");
-			getchar();
-			return 0;
+			cin.get();
 		break;
 		}
 	do
@@ -127,7 +125,6 @@ int main()
 	printf("Inserisci la mossa numero 4\n");
 	cin>>mossa[3];
 	exp = exp_agg * level;
-	printf("DEBUG");
 	scheda = Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "<b>EXP</b>: 0/" + to_string(exp);
 	Pokemon = Pokemon, "<b>Lv</b> ", level, "<b>Pv</b> ", pv, "<b>Vel</b> ", vel;
 	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt'!\n");
