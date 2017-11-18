@@ -21,8 +21,10 @@ int main()
 	string ant_move;
 	string mossa[3];
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\n");
+	do{		
 	printf("Numero Pokemon: ");
 	cin >> Pokemonum;
+	}while(Pokemonum<=0 or Pokemonum>802);
 	switch (Pokemonum)
 		{
 		case 1:
