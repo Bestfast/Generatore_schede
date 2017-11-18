@@ -2,13 +2,7 @@
 using namespace std;
 int main()
 {
-	int level;
-	int pv;
-	int vel;
-	int Errore;
-	int fine;
-	int exp_agg;
-	int exp;
+	int level,pv,vel,Errore,fine,exp_agg,exp;
 	unsigned int Pokemonum;
 	string Pokemon;
 	string Shiny;
