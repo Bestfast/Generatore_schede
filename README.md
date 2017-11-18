@@ -1,6 +1,6 @@
 ![MagicLife](https://upload.vstanced.com/images/2017/08/29/mHr.png)
 ## Generatore di schede per il [MagicLife](http://magiclife.forumcommunity.net). 
-###### Scritto in **C++** da Bestfast.
+###### Scritto in **C++** da Bestfast e @Volcah.
 
 TODO: 
 * Makefile
