@@ -4,18 +4,10 @@ int main()
 {
 	int level,pv,vel,Errore,fine,exp_agg,exp;
 	unsigned int Pokemonum;
-	string Pokemon;
-	string Shiny;
-	string scheda;
-	string fisico = ":fisico:";
-	string mosse_apprese;
-	string azione;
-	string lista_mosse_if;
-	string nome_pokemon;
-	string ant_move;
-	string mossa[3];
+	string Pokemon,Shiny,scheda,fisico=":fisico",mosse_apprese,azione,lista_mosse_if,nome_pokemon,ant_move,mossa[3];
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\n");
-	do{		
+	do
+	{		
 	printf("Numero Pokemon: ");
 	cin >> Pokemonum;
 	}while(Pokemonum<=0 or Pokemonum>802);
