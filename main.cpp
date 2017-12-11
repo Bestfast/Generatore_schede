@@ -50,7 +50,7 @@ int main()
 				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/charmander.gif]\n<b>Charmander</b> :fuoco:\n";
 			}
 		exp_agg=2;
-		mosse_apprese= "Te lo fai tu";
+		mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
 		break;
 	
 		case 7:
@@ -71,7 +71,7 @@ int main()
 				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/squirtle.gif]\n<b>Squirtle</b> :acqua:\n";
 			}
 		exp_agg=2;
-		mosse_apprese= "Te lo fai tu 2";
+		mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";
 		break;
 		
 	/*	case N:
