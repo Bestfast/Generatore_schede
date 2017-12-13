@@ -5,7 +5,7 @@ int main()
 {
 	int level,pv,vel,Errore,fine,exp_agg,exp;
 	unsigned int Pokemonum;
-	string Pokemon,Shiny,scheda,fisico=":fisico",mosse_apprese,azione,lista_mosse_if,nome_pokemon,ant_move,mossa[3];
+	string Pokemon,Shiny,scheda,fisico=":fisico",mosse_apprese,azione,lista_mosse_if,nome_pokemon,ant_move,typing,mossa[4];
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\n");
 	do
 	{		
@@ -19,16 +19,59 @@ int main()
 			printf("Hai scelto Bulbasaur!\nIl Pokémon e' shiny?\nRispondi con 'Si' o 'No'\n");
 			pv = 23;
 			vel = 45;
+			typing=":erba: :veleno:";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
 			{
 				printf("Ok, hai selezionato Bulbasaur shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/bulbasaur.gif]\n<b>Bulbasaur</b> :erba: :veleno:\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
 			}
 			if (Shiny == "No" or Shiny == "no")
 			{
 				printf("Ok, hai selezionato Bulbasaur NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/bulbasaur.gif]\n<b>Bulbasaur<b> :erba: :veleno:\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
+			}
+		exp_agg = 2;
+		mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+		break;
+	
+		case 2:
+			nome_pokemon = "Ivysaur";
+			printf("Hai scelto Ivysaur!\nIl Pokémon e' shiny?\nRispondi con 'Si' o 'No'\n");
+			pv = 23;
+			vel = 45;
+			typing=":erba: :veleno:";
+			cin >> Shiny;
+			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
+			{
+				printf("Ok, hai selezionato Ivysaur shiny!\n");
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
+			}
+			if (Shiny == "No" or Shiny == "no")
+			{
+				printf("Ok, hai selezionato Ivysaur NON shiny!\n");
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
+			}
+		exp_agg = 2;
+		mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+		break;
+		
+		case 3:
+			nome_pokemon = "Venusaur";
+			printf("Hai scelto Venusaur!\nIl Pokémon e' shiny?\nRispondi con 'Si' o 'No'\n");
+			pv = 23;
+			vel = 45;
+			typing=":erba: :veleno:";
+			cin >> Shiny;
+			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
+			{
+				printf("Ok, hai selezionato Venusaur shiny!\n");
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
+			}
+			if (Shiny == "No" or Shiny == "no")
+			{
+				printf("Ok, hai selezionato Venusaur NON shiny!\n");
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
 			}
 		exp_agg = 2;
 		mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
@@ -39,16 +82,17 @@ int main()
 			pv = 15;
 			vel = 65;
 			nome_pokemon = "Charmander";
+			typing=":fuoco:";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
 			{
 				printf("Ok, hai selezionato Charmander shiny!\n");
-			Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/charmander.gif]\n<b>Charmander</b> :fuoco:\n";
+			Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
 			}
 			if (Shiny == "No" or Shiny == "no")
 			{
 				printf("Ok, hai selezionato Charmander NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/charmander.gif]\n<b>Charmander</b> :fuoco:\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
 			}
 		exp_agg=2;
 		mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
@@ -59,17 +103,18 @@ int main()
 			pv = 15;
 			vel = 65;
 			nome_pokemon = "Squirtle";
+			typing=":acqua:";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
 			{
 				printf("Ok, hai selezionato Squirtle shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/squirtle.gif]\n<b>Squirtle</b> :acqua:\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
 			}
 			else
 			if (Shiny == "No" or Shiny == "no")
 			{
 				printf("Ok, hai selezionato Squirtle NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/squirtle.gif]\n<b>Squirtle</b> :acqua:\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemon+"</b>"+typing+"\n";
 			}
 		exp_agg=2;
 		mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";
@@ -128,24 +173,24 @@ int main()
 		cout << nome_pokemon << " puo' imparare queste mosse:\n" << mosse_apprese << "\n";
 	}
 	printf("Inserisci la mossa numero 1\n");
-	cin>>mossa[0];
-	printf("Inserisci la mossa numero 2\n");
-	cin>>mossa[1];
-	printf("Inserisci la mossa numero 3\n");
-	cin>>mossa[2];
-	printf("Inserisci la mossa numero 4\n");
-	cin>>mossa[3];
-	exp = exp_agg * level;
-	scheda = Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "<b>EXP</b>: 0/" + to_string(exp);
-	Pokemon = Pokemon, "<b>Lv</b> ", level, "<b>Pv</b> ", pv, "<b>Vel</b> ", vel;
-	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt'!\n");
-	FILE * pFile;
-	pFile = fopen("Scheda.txt", "w");
-	if (pFile != NULL)
-	{
-		fputs(scheda.c_str(), pFile);
-		fclose(pFile);
-	}
+ 	cin>>mossa[0];
+ 	printf("Inserisci la mossa numero 2\n");
+ 	cin>>mossa[1];
+ 	printf("Inserisci la mossa numero 3\n");
+ 	cin>>mossa[2];
+ 	printf("Inserisci la mossa numero 4\n");
+ 	cin>>mossa[3];
+ 	exp = exp_agg * level;
+ 	scheda = Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "<b>EXP</b>: 0/" + "\n" + to_string(exp);
+ 	Pokemon = Pokemon, "<b>Lv</b> ", level, "<b>Pv</b> ", pv, "<b>Vel</b> ", vel;
+ 	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt'!\n");
+ 	FILE * pFile;
+ 	pFile = fopen("Scheda.txt", "w");
+ 	if (pFile != NULL)
+ 	{
+ 		fputs(scheda.c_str(), pFile);
+ 		fclose(pFile);
+ 	}
 	cin.get();
 }
 
