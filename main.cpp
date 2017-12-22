@@ -7,6 +7,7 @@ unsigned int Pokemonum;
 string Pokemon,Shiny,scheda,fisico=":fisico",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,ant_move,typing,mossa[4];
 
 int mosse();
+int dati();
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\n");
@@ -15,142 +16,19 @@ int main()
 	printf("Numero Pokemon: ");
 	cin >> Pokemonum;
 	}while(Pokemonum<=0 or Pokemonum>802);
-	switch (Pokemonum)
-		{
-		case 1:
-			nome_pokemon = "bulbasaur";
-			nome_pokemonm = "Bulbasaur";
-			printf("Hai scelto Bulbasaur!\nIl Pokémon e' shiny?\nRispondi con 'Si' o 'No'\n");
-			pv = 23;
-			vel = 45;
-			typing=":erba: :veleno:";
-			cin >> Shiny;
-			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-			{
-				printf("Ok, hai selezionato Bulbasaur shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-			if (Shiny == "No" or Shiny == "no")
-			{
-				printf("Ok, hai selezionato Bulbasaur NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-		exp_agg = 2;
-		
-		break;
-	
-		case 2:
-			nome_pokemon = "ivysaur";
-			nome_pokemonm = "Ivysaur";
-			printf("Hai scelto Ivysaur!\nIl Pokémon e' shiny?\nRispondi con 'Si' o 'No'\n");
-			pv = 23;
-			vel = 45;
-			typing=":erba: :veleno:";
-			cin >> Shiny;
-			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-			{
-				printf("Ok, hai selezionato Ivysaur shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-			if (Shiny == "No" or Shiny == "no")
-			{
-				printf("Ok, hai selezionato Ivysaur NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-		exp_agg = 2;
-		break;
-		
-		case 3:
-			nome_pokemon = "venusaur";
-			nome_pokemonm = "Venusaur";
-			printf("Hai scelto Venusaur!\nIl Pokémon e' shiny?\nRispondi con 'Si' o 'No'\n");
-			pv = 23;
-			vel = 45;
-			typing=":erba: :veleno:";
-			cin >> Shiny;
-			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-			{
-				printf("Ok, hai selezionato Venusaur shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-			if (Shiny == "No" or Shiny == "no")
-			{
-				printf("Ok, hai selezionato Venusaur NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-		exp_agg = 2;
-		break;
-	
-		case 4:
-			nome_pokemon = "charmander";
-			nome_pokemonm = "Charmander";
-			printf("Hai scelto Charmander!\nIl Pokemon e' shiny?\nRispondi con 'Si' o 'No'\n");
-			pv = 15;
-			vel = 65;
-			typing=":fuoco:";
-			cin >> Shiny;
-			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-			{
-				printf("Ok, hai selezionato Charmander shiny!\n");
-			Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-			if (Shiny == "No" or Shiny == "no")
-			{
-				printf("Ok, hai selezionato Charmander NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-		exp_agg=2;
-		break;
-	
-		case 7:
-			nome_pokemon = "squirtle";
-			nome_pokemonm = "Squirtle";
-			printf("Hai scelto Squirtle!\nIl Pokemon e' shiny?\nRispondi con 'Si' o 'No'\n");
-			pv = 15;
-			vel = 65;
-			typing=":acqua:";
-			cin >> Shiny;
-			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-			{
-				printf("Ok, hai selezionato Squirtle shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-			else
-			if (Shiny == "No" or Shiny == "no")
-			{
-				printf("Ok, hai selezionato Squirtle NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-			}
-		exp_agg=2;
-		break;
-		
-	/*	case N:
-			printf("Hai scelto NOME!\nIl Pokemon e' shiny?\nRispondi con 'Si' o 'No'\n");
-			pv = PUNTI VITA;
-			vel = VELOCITA';
-			nome_pokemon = "NOME";
-			cin >> Shiny;
-			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-			{
-				printf("Ok, hai selezionato NOME shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/NOME.gif]\n<b>NOME</b> :TIPO:\n";
-			}
-			else
-			if (Shiny == "No" or Shiny == "no")
-			{
-				printf("Ok, hai selezionato NOME NON shiny!\n");
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/NOME.gif]\n<b>Squirtle</b> :TIPO:\n";
-			}
-		exp_agg=2?;
-		mosse_apprese= "MOSSE APPRESE";
-		break;
-		*/
-			
-		default:
-			printf("Non ancora implementato\n");
-			cin.get();
-		break;
-		}
+	dati();
+	cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokémon e' shiny? Rispondi con 'Si' o 'No'";
+	cin >> Shiny;
+	if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
+	{
+		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" shiny!\n";
+		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+	}
+	if (Shiny == "No" or Shiny == "no")
+	{
+		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" NON shiny!\n";
+		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+	}
 	do
 	{
 	    printf("Digita il livello del Pokemon!\n");
@@ -199,9 +77,63 @@ int main()
 	cin.get();
 }
 
+dati()
+{
+	switch(Pokemonum)
+	{
+		case 1:
+		nome_pokemon = "bulbasaur";
+		nome_pokemonm = "Bulbasaur";
+		pv = 23;
+		vel = 45;
+		typing=":erba: :veleno:";
+		exp_agg = 2;
+		break;
+		
+		case 2:
+		nome_pokemon = "ivysaur";
+		nome_pokemonm = "Ivysaur";
+		pv = 23;
+		vel = 45;
+		typing=":erba: :veleno:";
+		exp_agg = 2;
+		break;
+	
+		case 3:
+		nome_pokemon = "venusaur";
+		nome_pokemonm = "Venusaur";
+		pv = 23;
+		vel = 45;
+		typing=":erba: :veleno:";
+		exp_agg=2;
+		break;
+	
+		case 4:
+		nome_pokemon = "charmander";
+		nome_pokemonm = "Charmander";
+		pv = 15;
+		vel = 65;
+		typing=":fuoco:";
+		exp_agg=2;
+		break;
+	
+		case 7:
+		nome_pokemon = "squirtle";
+		nome_pokemonm = "Squirtle";
+		pv = 15;
+		vel = 65;
+		typing=":acqua:";
+		exp_agg=2;
+		break;
+		
+		default:
+		printf("Non valido");
+		cin.get();
+	}
+}
+
 mosse()
 {
-	
 	switch(Pokemonum)
 	{
 		case 1:
