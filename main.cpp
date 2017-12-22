@@ -8,6 +8,7 @@ string Pokemon,Shiny,scheda,fisico=":fisico",mosse_apprese,azione,lista_mosse_if
 
 int mosse();
 int dati();
+int shiny();
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon.\n");
@@ -17,18 +18,7 @@ int main()
 	cin >> Pokemonum;
 	}while(Pokemonum<=0 or Pokemonum>802);
 	dati();
-	cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokémon e' shiny? Rispondi con 'Si' o 'No'";
-	cin >> Shiny;
-	if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-	{
-		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" shiny!\n";
-		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-	}
-	if (Shiny == "No" or Shiny == "no")
-	{
-		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" NON shiny!\n";
-		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-	}
+	shiny();
 	do
 	{
 	    printf("Digita il livello del Pokemon!\n");
@@ -155,5 +145,21 @@ mosse()
 		case 7:
 		mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";	
 		break;
+	}
+}
+
+shiny()
+{
+	cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokémon e' shiny? Rispondi con 'Si' o 'No'";
+	cin >> Shiny;
+	if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
+	{
+		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" shiny!\n";
+		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+	}
+	if (Shiny == "No" or Shiny == "no")
+	{
+		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" NON shiny!\n";
+		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
 	}
 }
