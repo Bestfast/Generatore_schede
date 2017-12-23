@@ -54,36 +54,35 @@ int main()
  	printf("Inserisci la mossa numero 4\n");
  	cin>>mossa[3];
  	exp = exp_agg * level;
- 	FILE * fp;
- 	FILE * pNum;
-
- 	fp = fopen("num.txt" , "r");
-  	if(fp == NULL) 
-  	{
-  		snum = "1";
-		fputs(snum.c_str(), fp);
-	}
-	ifstream ifs("num.txt");
-	if( fp !=NULL ) 
-	{
-	getline(ifs,snum);
-   }
-   fclose(fp);
- 	scheda = "Pokemon " + snum + " codice:\n" + Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "<b>EXP</b>: 0/" + to_string(exp) + "\n\n\n";
- 	Pokemon = Pokemon, "<b>Lv</b> ", level, "<b>Pv</b> ", pv, "<b>Vel</b> ", vel;
+ // 	FILE * fp;
+ // 	FILE * pNum;
+	// FILE * Sn;
+	// Sn = fopen("num.txt", "w");
+ // 	fp = fopen("num.txt" , "r");
+ //  	if(fp == NULL) 
+ //  	{
+ //  		snum = "1";
+	// 	fputs(snum.c_str(), Sn);
+	// }
+	// fclose(Sn);
+	// ifstream ifs("num.txt");
+	// if( fp !=NULL ) 
+	// {
+	// getline(ifs,snum);
+ //   }
+	// ifs.close();
+ 	scheda = "Pokemon " + snum + " codice:\n" +  Pokemon + "<b>Lv</b> " + to_string(level) + "<b>Pv</b> " + to_string(pv) + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "<b>EXP</b>: 0/" + to_string(exp) + "\n\n\n";
  	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt'!\n");
  	FILE * pFile;
  	pFile = fopen("Scheda.txt", "a+");
 	fputs(scheda.c_str(), pFile);
 	fclose(pFile);
-	string::size_type sz;
-	num = std::stoi (snum,&sz);
-	num++;
-	snum = to_string(num);
-	FILE * Sn;
-	Sn = fopen("num.txt", "w");
-	fputs(snum.c_str(), Sn);
-	fclose(Sn);
+	// string::size_type sz;
+	// num = std::stoi (snum,&sz);
+	// num++;
+	// snum = to_string(num);
+	// fputs(snum.c_str(), Sn);
+	// fclose(Sn);
 	cin.get();
 }
 
