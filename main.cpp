@@ -2,23 +2,23 @@
 #include <string>
 #include <fstream> 
 using namespace std;
-
-int level,pv,vel,Errore,fine,exp_agg,exp,num,snum;
+int level,pv,vel,exp_agg,exp,num,inum,lunghezza,nums;
 unsigned int Pokemonum;
-string Pokemon,Shiny,scheda,fisico=":fisico",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,ant_move,typing,mossa[4],istring;
+char a[100];
+string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,typing,mossa[4],snum;
 int mosse();
 int dati();
 int shiny();
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
-	printf("Quanti Pokemon vuoi creare?");
-	cin>>snum;
-	for(int i=1;i<=snum;i++)
-	{
+	// printf("Quanti Pokemon vuoi creare?");
+	// cin>>snum;
+	// for(int i=1;i<=inum;i++)
+	// {
 		do
 		{		
-		printf("\nInserisci il numero Pokedex del Pokemon no. %d, guarda 'LISTA_POKEMON.txt' per la lista dei Pokémon: ", i);
+		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Poke'mon: ");
 		cin >> Pokemonum;
 		}while(Pokemonum<=0 or Pokemonum>802);
 		dati();
@@ -36,7 +36,6 @@ int main()
 			pot_da_aggiungere = 49 + (level - 50) * 2;
 		}
 		else
-		if (level <= 50)
 		{
 			pv = (level - 1) * 3 + pv;
 			pot_da_aggiungere = level - 1;
@@ -44,7 +43,7 @@ int main()
 		int pot_azione = 4 + pot_da_aggiungere;
 		printf("Vuoi vedere la lista delle mosse che puo' imparare questo Pokemon?\n");
 		cin >>	 lista_mosse_if;
-		if (lista_mosse_if == "Sì" or lista_mosse_if == "sì" or lista_mosse_if == "Si" or lista_mosse_if == "si")
+		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 0)
 		{
 			mosse();
 			cout << nome_pokemon << " puo' imparare queste mosse:\n" << mosse_apprese << "\n";
@@ -58,39 +57,48 @@ int main()
 	 	printf("Inserisci la mossa numero 4\n");
 	 	cin>>mossa[3];
 	 	exp = exp_agg * level;
-	 // 	FILE * fp;
-	 // 	FILE * pNum;
-		// FILE * Sn;
-		// Sn = fopen("num.txt", "w");
-	 // 	fp = fopen("num.txt" , "r");
-	 //  	if(fp == NULL) 
-	 //  	{
-	 //  		snum = "1";
-		// 	fputs(snum.c_str(), Sn);
-		// }
-		// fclose(Sn);
-		// ifstream ifs("num.txt");
-		// if( fp !=NULL ) 
-		// {
-		// getline(ifs,snum);
-	 //   }
-		// ifs.close();
-		istring=to_string(i);
-	 	scheda = "Pokemon " + istring + " codice:\n" +  Pokemon + "<b>Lv:</b> " + to_string(level) + "\n"+ "<b>Pv:</b> " + to_string(pv) + "\n" + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "\n" + "<b>EXP</b>: 0/" + to_string(exp) + "\n\n\n";
-	 	FILE * pFile;
-	 	pFile = fopen("Scheda.txt", "a+");
-		fputs(scheda.c_str(), pFile);
-		fclose(pFile);
-		// string::size_type sz;
-		// num = std::stoi (snum,&sz);
-		// num++;
-		// snum = to_string(num);
-		// fputs(snum.c_str(), Sn);
-		// fclose(Sn);
-	}
-	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt'!\n");
+	 	FILE * fp;
+	 	fp = fopen("num.txt","a+");
+		fclose(fp);
+		ofstream ofs;
+		ifstream ifs;
+		ifs.open("num.txt", ios::binary);
+		ifs.seekg(0, ios::end);
+		lunghezza = ifs.tellg();
+		ifs.close();
+		if (lunghezza == 0)
+		{
+			fp = fopen("num.txt","a+");
+			nums = 1;
+			fprintf(fp,"%d", nums);
+			fclose(fp);
+		}
+		else
+		{
+			fp = fopen("num.txt","a+");
+			rewind(fp);
+			fscanf(fp,"%s",a);
+			fclose(fp);
+			ofs.open("num.txt");
+			nums = std::stoi(a);
+			nums++;
+			ofs.close();
+			ofs.open("num.txt",ios::trunc);
+			fprintf(fp, "%d", nums);
+			ofs.close();
+    	}
+
+
+
+
+	 	scheda = "Scheda numero " + to_string(nums) + ":\n\n\n" +  Pokemon + "<b>Lv:</b> " + to_string(level) + "\n" + "<b>Pv:</b> " + to_string(pv) + "\n" + "<b>Vel</b> " + to_string(vel) + "\n" + mossa[0] + "\n" + mossa[1] + "\n" + mossa[2] + "\n" + mossa[3] + "\n" + "<b>EXP</b>: 0/" + to_string(exp) + "\n\n\n";
+	 	FILE * schedaF;
+	 	schedaF = fopen("Scheda.txt", "a+");
+		fputs(scheda.c_str(), schedaF);
+		fclose(schedaF);
+	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt', il numero della scheda è %d.\n", nums);
 	cin.get();
-}
+ }
 
 int dati()
 {
@@ -175,7 +183,7 @@ int mosse()
 
 int shiny()
 {
-	cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokémon e' shiny? Rispondi con 'Si' o 'No'\n";
+	cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Poke'mon e' shiny? Rispondi con 'Si' o 'No'\n";
 	cin >> Shiny;
 	if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
 	{
