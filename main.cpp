@@ -5,7 +5,7 @@ using namespace std;
 int level,pv,vel,exp_agg,exp,num,inum,lunghezza,nums;
 unsigned int Pokemonum;
 char a[100];
-string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,typing,mossa[4],snum,nomefile_pv, nomefile_vel;
+string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemonm,typing,mossa[4],snum,nomefile_pv, nomefile_vel;
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
@@ -21,35 +21,30 @@ int main()
 		switch(Pokemonum)
 			{
 				case 1:
-				nome_pokemon = "bulbasaur";
 				nome_pokemonm = "Bulbasaur";
 				typing=":erba: :veleno:";
 				exp_agg = 2;
 				break;
 				
 				case 2:
-				nome_pokemon = "ivysaur";
 				nome_pokemonm = "Ivysaur";
 				typing=":erba: :veleno:";
 				exp_agg = 2;
 				break;
 			
 				case 3:
-				nome_pokemon = "venusaur";
 				nome_pokemonm = "Venusaur";
 				typing=":erba: :veleno:";
 				exp_agg=2;
 				break;
 			
 				case 4:
-				nome_pokemon = "charmander";
 				nome_pokemonm = "Charmander";
 				typing=":fuoco:";
 				exp_agg=2;
 				break;
 			
 				case 7:
-				nome_pokemon = "squirtle";
 				nome_pokemonm = "Squirtle";
 				typing=":acqua:";
 				exp_agg=2;
@@ -73,17 +68,17 @@ int main()
 			rewind(filevel);
 			fscanf(filevel,"%d",&vel);
 			fclose(filevel);
-			cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Poke'mon e' shiny? Rispondi con 'Si' o 'No'\n";
+			cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokemon e' shiny? Rispondi con 'Si' o 'No'\n";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
 			{
 				cout<<"Ok, hai selezionato "<<nome_pokemonm<<" shiny!\n";
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+				Pokemon = "[IMG=https://raw.githubusercontent.com/Bestfast/sprites_pkmn/master/sprites_shiny/"+nome_pokemonm+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
 			}
 			if (Shiny == "No" or Shiny == "no")
 			{
 				cout<<"Ok, hai selezionato "<<nome_pokemonm<<" NON shiny!\n";
-				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+				Pokemon = "[IMG=https://raw.githubusercontent.com/Bestfast/sprites_pkmn/master/sprites/"+nome_pokemonm+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
 			}
 		do
 		{
