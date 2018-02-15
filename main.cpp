@@ -6,9 +6,6 @@ int level,pv,vel,exp_agg,exp,num,inum,lunghezza,nums;
 unsigned int Pokemonum;
 char a[100];
 string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,typing,mossa[4],snum;
-int mosse();
-int dati();
-int shiny();
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
@@ -18,11 +15,72 @@ int main()
 	// {
 		do
 		{		
-		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Poke'mon: ");
+		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokemon: ");
 		cin >> Pokemonum;
 		}while(Pokemonum<=0 or Pokemonum>802);
-		dati();
-		shiny();
+		switch(Pokemonum)
+			{
+				case 1:
+				nome_pokemon = "bulbasaur";
+				nome_pokemonm = "Bulbasaur";
+				pv = 23;
+				vel = 45;
+				typing=":erba: :veleno:";
+				exp_agg = 2;
+				break;
+				
+				case 2:
+				nome_pokemon = "ivysaur";
+				nome_pokemonm = "Ivysaur";
+				pv = 23;
+				vel = 45;
+				typing=":erba: :veleno:";
+				exp_agg = 2;
+				break;
+			
+				case 3:
+				nome_pokemon = "venusaur";
+				nome_pokemonm = "Venusaur";
+				pv = 23;
+				vel = 45;
+				typing=":erba: :veleno:";
+				exp_agg=2;
+				break;
+			
+				case 4:
+				nome_pokemon = "charmander";
+				nome_pokemonm = "Charmander";
+				pv = 15;
+				vel = 65;
+				typing=":fuoco:";
+				exp_agg=2;
+				break;
+			
+				case 7:
+				nome_pokemon = "squirtle";
+				nome_pokemonm = "Squirtle";
+				pv = 15;
+				vel = 65;
+				typing=":acqua:";
+				exp_agg=2;
+				break;
+				
+				default:
+				printf("Non implementato\n");
+				cin.get();
+			}
+			cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Poke'mon e' shiny? Rispondi con 'Si' o 'No'\n";
+			cin >> Shiny;
+			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
+			{
+				cout<<"Ok, hai selezionato "<<nome_pokemonm<<" shiny!\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+			}
+			if (Shiny == "No" or Shiny == "no")
+			{
+				cout<<"Ok, hai selezionato "<<nome_pokemonm<<" NON shiny!\n";
+				Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
+			}
 		do
 		{
 		    printf("Digita il livello del Pokemon!\n");
@@ -45,7 +103,28 @@ int main()
 		cin >>	 lista_mosse_if;
 		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 0)
 		{
-			mosse();
+			switch(Pokemonum)
+			{
+				case 1:
+				mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+				break;
+				
+				case 2:
+				mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+				break;
+				
+				case 3:
+				mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+				break;
+				
+				case 4:
+				mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
+				break;
+				
+				case 7:
+				mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";	
+				break;
+			}
 			cout << nome_pokemon << " puo' imparare queste mosse:\n" << mosse_apprese << "\n";
 		}
 		printf("Inserisci la mossa numero 1\n");
@@ -99,100 +178,3 @@ int main()
 	printf("Ben fatto! Trovi la scheda nel file 'Scheda.txt', il numero della scheda è %d.\n", nums);
 	cin.get();
  }
-
-int dati()
-{
-	switch(Pokemonum)
-	{
-		case 1:
-		nome_pokemon = "bulbasaur";
-		nome_pokemonm = "Bulbasaur";
-		pv = 23;
-		vel = 45;
-		typing=":erba: :veleno:";
-		exp_agg = 2;
-		break;
-		
-		case 2:
-		nome_pokemon = "ivysaur";
-		nome_pokemonm = "Ivysaur";
-		pv = 23;
-		vel = 45;
-		typing=":erba: :veleno:";
-		exp_agg = 2;
-		break;
-	
-		case 3:
-		nome_pokemon = "venusaur";
-		nome_pokemonm = "Venusaur";
-		pv = 23;
-		vel = 45;
-		typing=":erba: :veleno:";
-		exp_agg=2;
-		break;
-	
-		case 4:
-		nome_pokemon = "charmander";
-		nome_pokemonm = "Charmander";
-		pv = 15;
-		vel = 65;
-		typing=":fuoco:";
-		exp_agg=2;
-		break;
-	
-		case 7:
-		nome_pokemon = "squirtle";
-		nome_pokemonm = "Squirtle";
-		pv = 15;
-		vel = 65;
-		typing=":acqua:";
-		exp_agg=2;
-		break;
-		
-		default:
-		printf("Non implementato\n");
-		cin.get();
-	}
-}
-
-int mosse()
-{
-	switch(Pokemonum)
-	{
-		case 1:
-		mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-		break;
-		
-		case 2:
-		mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-		break;
-		
-		case 3:
-		mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-		break;
-		
-		case 4:
-		mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
-		break;
-		
-		case 7:
-		mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";	
-		break;
-	}
-}
-
-int shiny()
-{
-	cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Poke'mon e' shiny? Rispondi con 'Si' o 'No'\n";
-	cin >> Shiny;
-	if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
-	{
-		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" shiny!\n";
-		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani-shiny/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-	}
-	if (Shiny == "No" or Shiny == "no")
-	{
-		cout<<"Ok, hai selezionato "<<nome_pokemonm<<" NON shiny!\n";
-		Pokemon = "[IMG=https://play.pokemonshowdown.com/sprites/xyani/"+nome_pokemon+".gif]\n<b>"+nome_pokemonm+"</b>"+typing+"\n";
-	}
-}
