@@ -5,7 +5,7 @@ using namespace std;
 int level,pv,vel,exp_agg,exp,num,inum,lunghezza,nums;
 unsigned int Pokemonum;
 char a[100];
-string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,typing,mossa[4],snum;
+string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemon,nome_pokemonm,typing,mossa[4],snum,nomefile_pv, nomefile_vel;
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
@@ -23,8 +23,6 @@ int main()
 				case 1:
 				nome_pokemon = "bulbasaur";
 				nome_pokemonm = "Bulbasaur";
-				pv = 23;
-				vel = 45;
 				typing=":erba: :veleno:";
 				exp_agg = 2;
 				break;
@@ -32,8 +30,6 @@ int main()
 				case 2:
 				nome_pokemon = "ivysaur";
 				nome_pokemonm = "Ivysaur";
-				pv = 23;
-				vel = 45;
 				typing=":erba: :veleno:";
 				exp_agg = 2;
 				break;
@@ -41,8 +37,6 @@ int main()
 				case 3:
 				nome_pokemon = "venusaur";
 				nome_pokemonm = "Venusaur";
-				pv = 23;
-				vel = 45;
 				typing=":erba: :veleno:";
 				exp_agg=2;
 				break;
@@ -50,8 +44,6 @@ int main()
 				case 4:
 				nome_pokemon = "charmander";
 				nome_pokemonm = "Charmander";
-				pv = 15;
-				vel = 65;
 				typing=":fuoco:";
 				exp_agg=2;
 				break;
@@ -59,8 +51,6 @@ int main()
 				case 7:
 				nome_pokemon = "squirtle";
 				nome_pokemonm = "Squirtle";
-				pv = 15;
-				vel = 65;
 				typing=":acqua:";
 				exp_agg=2;
 				break;
@@ -69,6 +59,20 @@ int main()
 				printf("Non implementato\n");
 				cin.get();
 			}
+			cout << "a";
+			nomefile_pv = "Data//" + nome_pokemonm + "_pv.txt";
+			nomefile_vel = "Data//" + nome_pokemonm + "_vel.txt";
+			char *nome_file_pv = &nomefile_pv[0u];
+			char *nome_file_vel = &nomefile_vel[0u];
+			FILE *filepv, *filevel;
+			filepv = fopen(nome_file_pv,"a+");
+			rewind(filepv);
+			fscanf(filepv,"%d",&pv);
+			fclose(filepv);
+			filevel = fopen(nome_file_vel,"a+");
+			rewind(filevel);
+			fscanf(filevel,"%d",&vel);
+			fclose(filevel);
 			cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Poke'mon e' shiny? Rispondi con 'Si' o 'No'\n";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
