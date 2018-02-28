@@ -1,0 +1,15 @@
+Scheda numero 1:
+
+
+[IMG=https://raw.githubusercontent.com/Bestfast/sprites_pkmn/master/sprites/Bulbasaur.gif]
+<b>Bulbasaur</b>:erba: :veleno:
+<b>Lv:</b> 1
+<b>Pv:</b> 23
+<b>Vel</b> 45
+(mossa)
+(mossa)
+(mossa)
+(mossa)
+<b>EXP</b>: 0/2
+
+

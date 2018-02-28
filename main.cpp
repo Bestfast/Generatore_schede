@@ -4,8 +4,8 @@
 using namespace std;
 int level,pv,vel,exp_agg,exp,num,inum,lunghezza,nums;
 unsigned int Pokemonum;
-char a[100];
-string Pokemon,Shiny,scheda,fisico=":fisico:",mosse_apprese,azione,lista_mosse_if,nome_pokemonm,typing,mossa[4],snum,nomefile_pv, nomefile_vel;
+char a[100], mosse_apprese[1028];
+string Pokemon,Shiny,scheda,fisico=":fisico:",azione,lista_mosse_if,nome_pokemonm,typing,mossa[4],snum,nomefile_pv, nomefile_vel, nomefile_mosse_apprese;
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
@@ -15,7 +15,7 @@ int main()
 	// {
 		do
 		{		
-		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokemon: ");
+		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokemon: "); 
 		cin >> Pokemonum;
 		}while(Pokemonum<=0 or Pokemonum>802);
 		switch(Pokemonum)
@@ -100,31 +100,39 @@ int main()
 		int pot_azione = 4 + pot_da_aggiungere;
 		printf("Vuoi vedere la lista delle mosse che puo' imparare questo Pokemon?\n");
 		cin >>	 lista_mosse_if;
-		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 0)
+		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 1)
 		{
-			switch(Pokemonum)
-			{
-				case 1:
-				mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-				break;
+			FILE * mosse_apprese_file;
+			nomefile_mosse_apprese = "Data//" + nome_pokemonm + "_mosse_apprese.txt";
+			char *nome_file_mosse_apprese = &nomefile_mosse_apprese[0u];
+			mosse_apprese_file = fopen (nome_file_mosse_apprese, "a+");
+			rewind(mosse_apprese_file);
+			fscanf(mosse_apprese_file,"%s",mosse_apprese);
+			fclose(mosse_apprese_file);
+			string abc(mosse_apprese);
+			// switch(Pokemonum)
+			// {
+			// 	case 1:
+			// 	mosse_apprese[] = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+			// 	break;
 				
-				case 2:
-				mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-				break;
+			// 	case 2:
+			// 	mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+			// 	break;
 				
-				case 3:
-				mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-				break;
+			// 	case 3:
+			// 	mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
+			// 	break;
 				
-				case 4:
-				mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
-				break;
+			// 	case 4:
+			// 	mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
+			// 	break;
 				
-				case 7:
-				mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";	
-				break;
-			}
-			cout << nome_pokemon << " puo' imparare queste mosse:\n" << mosse_apprese << "\n";
+			// 	case 7:
+			// 	mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";	
+			// 	break;
+			// }
+			cout << nome_pokemonm << " puo' imparare queste mosse:\n" << abc << "\n";
 		}
 		printf("Inserisci la mossa numero 1\n");
 	 	cin>>mossa[0];
