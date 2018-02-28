@@ -166,7 +166,7 @@ int main()
 			fscanf(fp,"%s",a);
 			fclose(fp);
 			ofs.open("num.txt");
-			nums = std::stoi(a);
+			nums = stoi(a);
 			nums++;
 			ofs.close();
 			ofs.open("num.txt",ios::trunc);
