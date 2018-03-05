@@ -30,55 +30,30 @@ int main()
 			vector<string> row = *it;
 			nome_pokemonm =  row.at(Pokemonum);
 		}
-			// {
-			// 	case 1:
-			// 	nome_pokemonm = "Bulbasaur";
-			// 	typing=":erba: :veleno:";
-			// 	exp_agg = 2;
-			// 	break;
-				
-			// 	case 2:
-			// 	nome_pokemonm = "Ivysaur";
-			// 	typing=":erba: :veleno:";
-			// 	exp_agg = 2;
-			// 	break;
-			
-			// 	case 3:
-			// 	nome_pokemonm = "Venusaur";
-			// 	typing=":erba: :veleno:";
-			// 	exp_agg=2;
-			// 	break;
-			
-			// 	case 4:
-			// 	nome_pokemonm = "Charmander";
-			// 	typing=":fuoco:";
-			// 	exp_agg=2;
-			// 	break;
-			
-			// 	case 7:
-			// 	nome_pokemonm = "Squirtle";
-			// 	typing=":acqua:";
-			// 	exp_agg=2;
-			// 	break;
-				
-			// 	default:
-			// 	printf("Non implementato\n");
-			// 	cin.get();
-			// }
-			// cout << "a";
-			// nomefile_pv = "Data//" + nome_pokemonm + "_pv.txt";
-			// nomefile_vel = "Data//" + nome_pokemonm + "_vel.txt";
-			// char *nome_file_pv = &nomefile_pv[0u];
-			// char *nome_file_vel = &nomefile_vel[0u];
-			// FILE *filepv, *filevel;
-			// filepv = fopen(nome_file_pv,"a+");
-			// rewind(filepv);
-			// fscanf(filepv,"%d",&pv);
-			// fclose(filepv);
-			// filevel = fopen(nome_file_vel,"a+");
-			// rewind(filevel);
-			// fscanf(filevel,"%d",&vel);
-			// fclose(filevel);
+		result = db->query("SELECT * FROM typing;");
+		for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
+		{
+			vector<string> row = *it;
+			typing =  row.at(Pokemonum);
+		}
+		result = db->query("SELECT * FROM exp_agg;");
+		for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
+		{
+			vector<string> row = *it;
+			exp_agg =  stoi(row.at(Pokemonum));
+		}
+		result = db->query("SELECT * FROM pv;");
+		for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
+		{
+			vector<string> row = *it;
+			pv =  stoi(row.at(Pokemonum));
+		}
+		result = db->query("SELECT * FROM vel;");
+		for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
+		{
+			vector<string> row = *it;
+			vel =  stoi(row.at(Pokemonum));
+		}
 			cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokemon e' shiny? Rispondi con 'Si' o 'No'\n";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
@@ -108,42 +83,16 @@ int main()
 			pv = (level - 1) * 3 + pv;
 			pot_da_aggiungere = level - 1;
 		}
-		int pot_azione = 4 + pot_da_aggiungere;
 		printf("Vuoi vedere la lista delle mosse che puo' imparare questo Pokemon?\n");
 		cin >>	 lista_mosse_if;
 		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 1)
 		{
-			FILE * mosse_apprese_file;
-			nomefile_mosse_apprese = "Data//" + nome_pokemonm + "_mosse_apprese.txt";
-			char *nome_file_mosse_apprese = &nomefile_mosse_apprese[0u];
-			mosse_apprese_file = fopen (nome_file_mosse_apprese, "a+");
-			rewind(mosse_apprese_file);
-			fscanf(mosse_apprese_file,"%s",mosse_apprese);
-			fclose(mosse_apprese_file);
-			string abc(mosse_apprese);
-			// switch(Pokemonum)
-			// {
-			// 	case 1:
-			// 	mosse_apprese[] = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-			// 	break;
-				
-			// 	case 2:
-			// 	mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-			// 	break;
-				
-			// 	case 3:
-			// 	mosse_apprese = "Affannoseme\nAmnesia\nAttrazione\nAzione\nBullo\nCampo Erboso\nCapocciata\nConfidenza\nCoro\nCrescita\nCuordileone\nDanzaspada\nDoppioteam\nEccheggiavoce\nEnergipalla\nErbapatto\nFacciata\nFango\nFangobomba\nFascino\nFogliamagica\nFoglielama\nFrustata\nFrustazione\nGigassorbimento\nGiornodisole\nIntroforza\nLaccioerboso\nLegatutto\nMaledizione\nMeloderba\nNaturforza\nPetalodanza\nPrivazione\nProfumino\nProtezione\nRadicamento\nResistenza\nRiduttore\nRiposo\nRitorno\nRuggito\nRussare\nSalvaguardia\nSchermoluce\nSdoppiatore\nSemebomba\nSintesi\nSolarraggio\nSonnifero\nSonnolalia\nSostituto\nTossina\nVelenoshock\nVelenpolvere\nVerdebufera\nVigorcolpo";
-			// 	break;
-				
-			// 	case 4:
-			// 	mosse_apprese= "Graffio\nRuggito\nBraciere\nMuro di Fumo\nIra di Drago\nVisotruce\nRogodenti\nPirolancio\nLacerazione\nLanciafiamme\nTurbofuoco\nMarchiatura";
-			// 	break;
-				
-			// 	case 7:
-			// 	mosse_apprese= "Azione\nColpocoda\nPistolacqua\nRitirata\nBolla\nMorso\nRapigiro\nProtezione\nIdropulsar\nIdrondata\nCapocciata\nFerroscudo\nPioggiadanza\nIdropompa";	
-			// 	break;
-			// }
-			cout << nome_pokemonm << " puo' imparare queste mosse:\n" << abc << "\n";
+			result = db->query("SELECT * FROM mosse_apprese;");
+			for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
+			{
+				vector<string> row = *it;
+				cout << nome_pokemonm << " puo' imparare queste mosse:\n" << row.at(Pokemonum) << endl;
+			}
 		}
 		printf("Inserisci la mossa numero 1\n");
 	 	cin>>mossa[0];
