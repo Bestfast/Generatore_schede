@@ -1,3 +1,5 @@
-sudo apt update 
-sudo apt install  -y gcc sqlite3 libsqlite3-dev build-essential
-g++ main.cpp -std=c++11 -lsqlite3 -o generatore_schede
+g++ main.cpp -std=c++11 -lsqlite3 -o Generatore_Schede
+x86_64-w64-mingw32-g++ -std=c++11 -lsqlite3 main.cpp -o Generatore_Schede.exe
+mkdir build
+mv Generatore_Schede Generatore_Schede.exe db.sqlite build/
+zip -r build.zip build
