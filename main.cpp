@@ -1,11 +1,16 @@
 #include <iostream>
 #include <string>
 #include <fstream> 
+#include <sqlite3.h>
+#include "Database/Database.h"
+#include "Database/main.cpp"
+
 using namespace std;
 int level,pv,vel,exp_agg,exp,num,inum,lunghezza,nums;
 unsigned int Pokemonum;
 char a[100], mosse_apprese[1028];
 string Pokemon,Shiny,scheda,fisico=":fisico:",azione,lista_mosse_if,nome_pokemonm,typing,mossa[4],snum,nomefile_pv, nomefile_vel, nomefile_mosse_apprese;
+Database *db;
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
@@ -18,56 +23,62 @@ int main()
 		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokemon: "); 
 		cin >> Pokemonum;
 		}while(Pokemonum<=0 or Pokemonum>802);
-		switch(Pokemonum)
-			{
-				case 1:
-				nome_pokemonm = "Bulbasaur";
-				typing=":erba: :veleno:";
-				exp_agg = 2;
-				break;
+		db = new Database("db.sqlite");
+		vector<vector<string> > result = db->query("SELECT * FROM nome_pokemon;");
+		for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
+		{
+			vector<string> row = *it;
+			nome_pokemonm =  row.at(Pokemonum);
+		}
+			// {
+			// 	case 1:
+			// 	nome_pokemonm = "Bulbasaur";
+			// 	typing=":erba: :veleno:";
+			// 	exp_agg = 2;
+			// 	break;
 				
-				case 2:
-				nome_pokemonm = "Ivysaur";
-				typing=":erba: :veleno:";
-				exp_agg = 2;
-				break;
+			// 	case 2:
+			// 	nome_pokemonm = "Ivysaur";
+			// 	typing=":erba: :veleno:";
+			// 	exp_agg = 2;
+			// 	break;
 			
-				case 3:
-				nome_pokemonm = "Venusaur";
-				typing=":erba: :veleno:";
-				exp_agg=2;
-				break;
+			// 	case 3:
+			// 	nome_pokemonm = "Venusaur";
+			// 	typing=":erba: :veleno:";
+			// 	exp_agg=2;
+			// 	break;
 			
-				case 4:
-				nome_pokemonm = "Charmander";
-				typing=":fuoco:";
-				exp_agg=2;
-				break;
+			// 	case 4:
+			// 	nome_pokemonm = "Charmander";
+			// 	typing=":fuoco:";
+			// 	exp_agg=2;
+			// 	break;
 			
-				case 7:
-				nome_pokemonm = "Squirtle";
-				typing=":acqua:";
-				exp_agg=2;
-				break;
+			// 	case 7:
+			// 	nome_pokemonm = "Squirtle";
+			// 	typing=":acqua:";
+			// 	exp_agg=2;
+			// 	break;
 				
-				default:
-				printf("Non implementato\n");
-				cin.get();
-			}
-			cout << "a";
-			nomefile_pv = "Data//" + nome_pokemonm + "_pv.txt";
-			nomefile_vel = "Data//" + nome_pokemonm + "_vel.txt";
-			char *nome_file_pv = &nomefile_pv[0u];
-			char *nome_file_vel = &nomefile_vel[0u];
-			FILE *filepv, *filevel;
-			filepv = fopen(nome_file_pv,"a+");
-			rewind(filepv);
-			fscanf(filepv,"%d",&pv);
-			fclose(filepv);
-			filevel = fopen(nome_file_vel,"a+");
-			rewind(filevel);
-			fscanf(filevel,"%d",&vel);
-			fclose(filevel);
+			// 	default:
+			// 	printf("Non implementato\n");
+			// 	cin.get();
+			// }
+			// cout << "a";
+			// nomefile_pv = "Data//" + nome_pokemonm + "_pv.txt";
+			// nomefile_vel = "Data//" + nome_pokemonm + "_vel.txt";
+			// char *nome_file_pv = &nomefile_pv[0u];
+			// char *nome_file_vel = &nomefile_vel[0u];
+			// FILE *filepv, *filevel;
+			// filepv = fopen(nome_file_pv,"a+");
+			// rewind(filepv);
+			// fscanf(filepv,"%d",&pv);
+			// fclose(filepv);
+			// filevel = fopen(nome_file_vel,"a+");
+			// rewind(filevel);
+			// fscanf(filevel,"%d",&vel);
+			// fclose(filevel);
 			cout<<"Hai scelto "<<nome_pokemonm<<"!\nIl Pokemon e' shiny? Rispondi con 'Si' o 'No'\n";
 			cin >> Shiny;
 			if (Shiny == "Sì" or Shiny == "sì" or Shiny == "Si" or Shiny == "si")
@@ -166,7 +177,7 @@ int main()
 			fscanf(fp,"%s",a);
 			fclose(fp);
 			ofs.open("num.txt");
-			nums = std::stoi(a);
+			nums = stoi(a);
 			nums++;
 			ofs.close();
 			ofs.open("num.txt",ios::trunc);
