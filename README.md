@@ -1,4 +1,5 @@
 ![MagicLife](https://upload.vstanced.com/images/2017/08/29/mHr.png)
+[![Build Status](https://semaphoreci.com/api/v1/bestfast/generatore_schede/branches/master/badge.svg)](https://semaphoreci.com/bestfast/generatore_schede)
 ## Generatore di schede per il [MagicLife](http://magiclife.forumcommunity.net). 
 ##### _Scritto in C++ da Bestfast e @Volcah._
 
