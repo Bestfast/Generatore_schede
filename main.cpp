@@ -85,7 +85,8 @@ int main()
 		}
 		printf("Vuoi vedere la lista delle mosse che puo' imparare questo Pokemon?\n");
 		cin >>	 lista_mosse_if;
-		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 1)
+		cin.ignore();
+		if ((lista_mosse_if.compare("Sì") or lista_mosse_if.compare("sì") or lista_mosse_if.compare("Si") or lista_mosse_if.compare("si")) == 0)
 		{
 			result = db->query("SELECT * FROM mosse_apprese;");
 			for(vector<vector<string> >::iterator it = result.begin(); it < result.end(); ++it)
@@ -95,13 +96,13 @@ int main()
 			}
 		}
 		printf("Inserisci la mossa numero 1\n");
-	 	cin>>mossa[0];
+	 	getline (cin,mossa[0]);
 	 	printf("Inserisci la mossa numero 2\n");
-	 	cin>>mossa[1];
+	 	getline (cin,mossa[1]);
 	 	printf("Inserisci la mossa numero 3\n");
-	 	cin>>mossa[2];
+	 	getline (cin,mossa[2]);
 	 	printf("Inserisci la mossa numero 4\n");
-	 	cin>>mossa[3];
+	 	getline (cin,mossa[3]);
 	 	exp = exp_agg * level;
 	 	FILE * fp;
 	 	fp = fopen("num.txt","a+");
