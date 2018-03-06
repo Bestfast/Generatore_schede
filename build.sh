@@ -1,4 +1,4 @@
-sudo apt-get install -y mingw-w64 libc6-dev-i386
+sudo apt-get install -y gcc-mingw-w64 libc6-dev-i386
 sudo apt-get install --reinstall -y libsqlite3-0:i386
 sudo curl http://www.sqlite.org/2018/sqlite-amalgamation-3220000.zip --output /usr/lib/gcc/x86_64-w64-mingw32/4.8/include/sqlite.zip
 sudo unzip /usr/lib/gcc/x86_64-w64-mingw32/4.8/include/sqlite.zip -d /usr/lib/gcc/x86_64-w64-mingw32/4.8/include/
