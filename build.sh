@@ -12,7 +12,7 @@ sudo cp -av /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6 /usr/x86_64-w64-mingw3
 sudo cp -av /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6 /usr/x86_64-w64-mingw32/lib/libsqlite3.so
 g++ main.cpp -std=c++11 -lsqlite3 -o Generatore_Schede
 sed -i 's/<sqlite3.h>/"sqlite3.h"/g' main.cpp
-sudo x86_64-w64-mingw32-g++ -L/usr/x86_64-w64-mingw32/lib -std=gnu++11 main.cpp -lsqlite3 -o Generatore_Schede.exe 
+sudo x86_64-w64-mingw32-g++ -std=gnu++11 main.cpp -L/usr/x86_64-w64-mingw32/lib -lsqlite3 -o Generatore_Schede.exe 
 mkdir build
 sudo mv Generatore_Schede Generatore_Schede.exe db.sqlite build/
 sudo zip -r build.zip build
