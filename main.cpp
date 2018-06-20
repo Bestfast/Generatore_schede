@@ -14,10 +14,7 @@ Database *db;
 int main()
 {
 	printf("Benvenuto nel generatore schede di Bestfast!\nIniziamo!\n");
-	// printf("Quanti Pokemon vuoi creare?");
-	// cin>>snum;
-	// for(int i=1;i<=inum;i++)
-	// {
+
 		do
 		{		
 		printf("\nInserisci il numero Pokedex del Pokemon, guarda 'LISTA_POKEMON.txt' per la lista dei Pokemon: "); 
